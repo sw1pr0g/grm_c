@@ -1,5 +1,5 @@
 app:
-  name: 'amazing-people-calendar-server'
+  name: 'apc_server'
   version: '1.0.0'
 
 http:
