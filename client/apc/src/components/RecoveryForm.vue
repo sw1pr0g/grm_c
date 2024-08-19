@@ -1,6 +1,6 @@
 <template>
   <v-card class="card">
-    <v-card-title class="headline">Вход в систему</v-card-title>
+    <v-card-title class="headline">Восстановление пароля</v-card-title>
     <v-card-text>
       <v-form ref="form" v-model="valid">
         <v-text-field
@@ -9,52 +9,35 @@
           label="Электронная почта"
           required
         ></v-text-field>
-        <v-text-field
-          v-model="password"
-          :rules="passwordRules"
-          label="Пароль"
-          type="password"
-          required
-        ></v-text-field>
       </v-form>
     </v-card-text>
     <v-card-actions>
-      <v-btn @click="login">Войти</v-btn>
+      <v-spacer></v-spacer>
+      <v-btn color="primary" @click="recoverPassword">Отправить</v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { useRouter } from 'vue-router'
-
-const router = useRouter();
-
 
 export default defineComponent({
-  name: 'LoginForm',
+  name: 'PasswordRecoveryForm',
   setup() {
     const email = ref('');
-    const password = ref('');
     const valid = ref(false);
 
-
-
+    // Правила для проверки электронной почты
     const emailRules = [
       (v: string) => !!v || 'Электронная почта обязательна',
       (v: string) => /.+@.+\..+/.test(v) || 'Электронная почта должна быть действительной'
     ];
 
-    const passwordRules = [
-      (v: string) => !!v || 'Пароль обязателен',
-      (v: string) => v.length >= 6 || 'Пароль должен быть не менее 6 символов'
-    ];
-
-    const login = () => {
+    // Функция отправки запроса на восстановление пароля
+    const recoverPassword = () => {
       if (valid.value) {
-        // Логика аутентификации
-        console.log('Email:', email.value);
-        console.log('Password:', password.value);
+        // Логика отправки запроса на восстановление пароля
+        console.log('Отправка ссылки для восстановления пароля на email:', email.value);
       } else {
         console.log('Форма невалидна');
       }
@@ -62,15 +45,12 @@ export default defineComponent({
 
     return {
       email,
-      password,
       valid,
       emailRules,
-      passwordRules,
-      login,
+      recoverPassword,
     };
   },
 });
-
 </script>
 
 <style scoped>

@@ -2,22 +2,22 @@
   <v-app>
     <v-main>
       <v-container class="container">
-        <login-form />
+        <recovery-form />
       </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import LoginForm from '@/components/LoginForm.vue'
+import { defineComponent } from 'vue';
+import RecoveryForm from '@/components/RecoveryForm.vue'
 
 export default defineComponent({
-  name: 'LoginView',
+  name: 'RecoveryView',
   components: {
-    LoginForm
-  }
-})
+    RecoveryForm,
+  },
+});
 </script>
 
 <style scoped>
