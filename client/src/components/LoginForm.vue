@@ -4,17 +4,17 @@
     <v-card-text>
       <v-form ref="form" v-model="valid">
         <v-text-field
-          v-model="email"
-          :rules="emailRules"
-          label="Электронная почта"
-          required
+            v-model="email"
+            :rules="emailRules"
+            label="Электронная почта"
+            required
         ></v-text-field>
         <v-text-field
-          v-model="password"
-          :rules="passwordRules"
-          label="Пароль"
-          type="password"
-          required
+            v-model="password"
+            :rules="passwordRules"
+            label="Пароль"
+            type="password"
+            required
         ></v-text-field>
       </v-form>
     </v-card-text>
