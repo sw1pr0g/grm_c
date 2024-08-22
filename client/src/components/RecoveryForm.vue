@@ -21,22 +21,20 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 
+
 export default defineComponent({
   name: 'PasswordRecoveryForm',
   setup() {
     const email = ref('');
     const valid = ref(false);
 
-    // Правила для проверки электронной почты
     const emailRules = [
       (v: string) => !!v || 'Электронная почта обязательна',
       (v: string) => /.+@.+\..+/.test(v) || 'Электронная почта должна быть действительной'
     ];
 
-    // Функция отправки запроса на восстановление пароля
     const recoverPassword = () => {
       if (valid.value) {
-        // Логика отправки запроса на восстановление пароля
         console.log('Отправка ссылки для восстановления пароля на email:', email.value);
       } else {
         console.log('Форма невалидна');
