@@ -15,7 +15,7 @@ import LoginForm from '@/components/LoginForm.vue'
 export default defineComponent({
   name: 'LoginView',
   components: {
-    LoginForm
-  }
-})
+    LoginForm,
+  },
+});
 </script>
